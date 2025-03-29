@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-// import ambig from '.components'
-// import heron from './components'
-// import newton from './components'
-// import poly from './components'
+import Ambig from './components/ambig.jsx';
+import Heron from './components/heron.jsx'
+import Newton from './components/newton.jsx'
+import Poly from './components/poly.jsx'
 
 function App() {
 
     return (
         <div className='formulas'>
-            <ambig />
-            <heron />
-            <newton />
-            <poly />
+            <Ambig />
+            <Heron />
+            <Newton />
+            <Poly />
         </div>
     )
 }

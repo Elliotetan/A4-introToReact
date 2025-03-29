@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
-import './components.css'
 
-function ambig() {
+function Ambig() {
     const [angleA, setA] = useState('');
     const [sideA, setB] = useState('');
     const [sideB, setC] = useState('');
     const [result, setResult] = useState('');
 
-    // Function to calculate the ambiguous case
     const ambigCase = (e) => {
         e.preventDefault();  // Prevent default form submission
 
         const angle = Number(angleA);
-        const sideA = Number(sideA);
-        const sideB = Number(sideB);
-        const hy = sideB * Math.sin(angle * (Math.PI / 180));
+        const A = Number(sideA);
+        const B = Number(sideB);
+        const hy = B * Math.sin(angle * (Math.PI / 180)); // Calculate height (using sine of the angle)
 
+        // Check the angle and side conditions for ambiguous cases
         if (0 < angle && angle <= 90) {
-            if (sideA < hy) {
+            if (A < hy) {
                 setResult("No triangle");
-            } else if (sideA === hy) {
+            } else if (A === hy) {
                 setResult("Right triangle");
-            } else if (sideA > sideB) {
+            } else if (A > B) {
                 setResult("One triangle");
-            } else if (hy < sideA && sideA < sideB) {
+            } else if (hy < A && A < B) {
                 setResult("Two triangles (ambiguous case)");
             }
         } else if (90 < angle && angle < 180) {
-            if (sideA < sideB || sideA === sideB) {
+            if (A < B || A === B) {
                 setResult("No triangle");
-            } else if (sideA > sideB) {
+            } else if (A > B) {
                 setResult("One triangle");
             }
         } else {
@@ -38,14 +37,14 @@ function ambig() {
     };
 
     return (
-        <form onSubmit={ambigCase}>
+        <form className="container" onSubmit={ambigCase}>
             <h1 className="header">Ambiguous Case</h1>
             <label>Angle A:</label>
-            <input type="number" value={angleA} onChange={(event) => setA(event.target.value)} required />
+            <input type="number" value={angleA} onChange={(event) => setA(Number(event.target.value))} required/>
             <label>Side a:</label>
-            <input type="number" value={sideA} onChange={(event) => setB(event.target.value)} required />
+            <input type="number" value={sideA} onChange={(event) => setB(Number(event.target.value))} required/>
             <label>Side b:</label>
-            <input type="number" value={sideB} onChange={(event) => setC(event.target.value)} required />
+            <input type="number" value={sideB} onChange={(event) => setC(Number(event.target.value))} required/>
             <button className="calculate" type="submit" id="ambiguousSubmit">Calculate</button>
             <label>Triangle Type (Result)</label>
             <input type="text" id="amb-result" name="amb-result" value={result} readOnly />
@@ -53,4 +52,4 @@ function ambig() {
     );
 }
 
-export default ambig;
+export default Ambig;
