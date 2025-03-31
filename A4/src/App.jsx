@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import './App.css'
-import Ambig from './components/ambig.jsx';
-import Heron from './components/heron.jsx'
-import Newton from './components/newton.jsx'
-import Poly from './components/poly.jsx'
+import Ambig from './components/AmbiguousCase.jsx';
+import Heron from './components/HeronsFormula.jsx'
+import Newton from './components/NewtonsMethod.jsx'
+import Poly from './components/PolynomialFunction.jsx'
 
 function App() {
 
     return (
         <div className='formulas'>
-            <Ambig />
             <Heron />
+            <Ambig />
             <Newton />
             <Poly />
         </div>
