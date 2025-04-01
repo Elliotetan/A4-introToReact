@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 
 
-function Ambig() {
+function Ambig() { //PascalCase
     const [angleA, setA] = useState('');
     const [sideA, setB] = useState('');
     const [sideB, setC] = useState('');
