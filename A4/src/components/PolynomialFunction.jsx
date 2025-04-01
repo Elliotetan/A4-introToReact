@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './components.css';
+import './style.css';
 
 const Poly = () => {
     const [coefficients, setCoefficients] = useState('');
@@ -10,6 +10,7 @@ const Poly = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        
         if (name === 'coefficients') setCoefficients(value);
         if (name === 'exponents') setExponents(value);
         if (name === 'x-value') setXValue(value);

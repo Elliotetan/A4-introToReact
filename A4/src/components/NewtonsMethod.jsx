@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './style.css';
 
 function Newton() {
   const [rootGuess, setRootGuess] = useState('');
@@ -11,6 +12,7 @@ function Newton() {
 
   const calculateRoot = (e) => {
     e.preventDefault();
+    
     let x0 = Number(rootGuess);
     let x1 = 0;
     let iteration = 0;
