@@ -8,8 +8,8 @@ function Ambig() { //PascalCase
     const [sideB, setC] = useState('');
     const [result, setResult] = useState('');
 
-    const ambigCase = (e) => {
-        e.preventDefault();  // Prevent default form submission
+    const ambigCase = (e) => { //camelCase
+        e.preventDefault();  
 
         const angle = Number(angleA);
         const A = Number(sideA); //camelCase
