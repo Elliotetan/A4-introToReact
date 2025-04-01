@@ -12,24 +12,24 @@ function Ambig() { //PascalCase
         e.preventDefault();  
 
         const angle = Number(angleA);
-        const A = Number(sideA); //camelCase
-        const B = Number(sideB); //camelCase
-        const hy = B * Math.sin(angle * (Math.PI / 180));
+        const aSide = Number(sideA); //camelCase
+        const bSide = Number(sideB); //camelCase
+        const hy = bSide * Math.sin(angle * (Math.PI / 180));
 
         if (0 < angle && angle <= 90) {
-            if (A < hy) {
+            if (aSide < hy) {
                 setResult("No triangle");
-            } else if (A === hy) {
+            } else if (aSide === hy) {
                 setResult("Right triangle");
-            } else if (A > B) {
+            } else if (aSide > bSide) {
                 setResult("One triangle");
-            } else if (hy < A && A < B) {
+            } else if (hy < aSide && aSide < bSide) {
                 setResult("Two triangles (ambiguous case)");
             }
         } else if (90 < angle && angle < 180) {
-            if (A < B || A === B) {
+            if (aSide < bSide || aSide === bSide) {
                 setResult("No triangle");
-            } else if (A > B) {
+            } else if (aSide > bSide) {
                 setResult("One triangle");
             }
         } else {
